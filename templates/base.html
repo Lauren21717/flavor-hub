@@ -1,23 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--font awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css" />
     <!--materialize css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% block styles %}
     {% endblock %}
     <title>Flavor Hub</title>
 </head>
+
 <body>
+    <!--
+    Code snippet from Materialize (https://materializecss.com/)
+    Documentation URL: https://materializecss.com/getting-started.html
+    Date: 2024-08-04
+    -->
+
+    <!-- Copied code from Materialize -->
+    <!--navbar-->
+    <nav class="nav-extended amber darken-2">
+        <div class="nav-wrapper">
+            <a href="{{ url_for('index') }}" class="brand-logo">Flavor Hub</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Recipe</a></li>
+                <li><a href="#">Add Recipe</a></li>
+                <li><a href="#">Log Out</a></li>
+                <li><a href="#">Log In</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--mobile sidenav-->
+    <ul class="sidenav" id="mobile-demo">
+        <li><h4 class="center-align amber-text text-darken-4">Flavor Hub</h4></li>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Recipe</a></li>
+        <li><a href="#">Add Recipe</a></li>
+        <li><a href="#">Log Out</a></li>
+        <li><a href="#">Log In</a></li>
+        <li><a href="#">Register</a></li>
+    </ul>
     {% block content %}
     {% endblock %}
     <!--jQuery-->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!--materialize js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -25,4 +64,5 @@
     {% block scripts %}
     {% endblock %}
 </body>
+
 </html>

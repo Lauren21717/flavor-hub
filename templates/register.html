@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="center-align">Register</h3>
+
+<div class="row">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
+        <div class="card-panel ">
+            <!--username-->
+            <div class="row">
+                <div class="input-field col s10 offset-m1">
+                    <i class="fa-solid fa-user prefix "></i>
+                    <input id="username" name="username" type="text" class="validate" required>
+                    <label for="username">Username</label>
+                </div>
+            </div>
+            <!--email-->
+            <div class="row">
+                <div class="input-field col s10 offset-m1">
+                    <i class="fa-solid fa-envelope prefix"></i>
+                    <input id="email" name="email" type="text" class="validate" required>
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <!--password-->
+            <div class="row">
+                <div class="input-field col s10 offset-m1">
+                    <i class="fa-solid fa-lock prefix"></i>
+                    <input id="password" name="password" type="text" class="validate" required>
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <!--register-->
+            <div class="row">
+                <button class=" col s4 offset-m4 btn amber darken-3 " type="submit">
+                    Register
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

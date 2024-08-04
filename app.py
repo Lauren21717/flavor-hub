@@ -28,6 +28,40 @@ def index():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        username = request.form.get("username").lower()
+        email = request.form.get("email")
+        password = request.form.get("password")
+        
+        # Check if username or email already exists
+        existing_username = mongo.db.users.find_one({"username": username})
+        existing_email = mongo.db.users.find_one({"email": email})
+        
+        if existing_username and existing_email:
+            flash("You have already registered, please log in.")
+            # change when login create
+            return redirect(url_for("register")) 
+        elif existing_username:
+            flash("Username already exists, please choose another username or log in.")
+            return redirect(url_for("register")) 
+        elif existing_email:
+            flash("Email already exists, please log in.")
+            return redirect(url_for("register")) 
+        
+        # Create new user record
+        new_user = {
+            "username": username,
+            "email": email,
+            "password": generate_password_hash(password)
+        }
+        mongo.db.users.insert_one(new_user)
+        
+        # Set session variable and notify user
+        session["user"] = username
+        flash("Registration Successful!")
+        # change when profile create
+        return redirect(url_for("register"))
+        
     return render_template('register.html')
 
 

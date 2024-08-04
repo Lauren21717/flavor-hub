@@ -26,35 +26,54 @@
 
     <!-- Copied code from Materialize -->
     <!--navbar-->
-    <nav class="nav-extended amber darken-2">
-        <div class="nav-wrapper">
-            <a href="{{ url_for('index') }}" class="brand-logo">Flavor Hub</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Recipe</a></li>
-                <li><a href="#">Add Recipe</a></li>
-                <li><a href="#">Log Out</a></li>
-                <li><a href="#">Log In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <nav class="nav-extended amber darken-2">
+            <div class="nav-wrapper">
+                <a href="{{ url_for('index') }}" class="brand-logo">Flavor Hub</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Recipe</a></li>
+                    <li><a href="#">Add Recipe</a></li>
+                    <li><a href="#">Log Out</a></li>
+                    <li><a href="#">Log In</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                </ul>
+            </div>
+        </nav>
 
-    <!--mobile sidenav-->
-    <ul class="sidenav" id="mobile-demo">
-        <li><h4 class="center-align amber-text text-darken-4">Flavor Hub</h4></li>
-        <li><a href="{{ url_for('index') }}">Home</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Recipe</a></li>
-        <li><a href="#">Add Recipe</a></li>
-        <li><a href="#">Log Out</a></li>
-        <li><a href="#">Log In</a></li>
-        <li><a href="{{ url_for('register') }}">Register</a></li>
-    </ul>
-    {% block content %}
-    {% endblock %}
+        <!--mobile sidenav-->
+        <ul class="sidenav" id="mobile-demo">
+            <li>
+                <h4 class="center-align amber-text text-darken-4">Flavor Hub</h4>
+            </li>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Recipe</a></li>
+            <li><a href="#">Add Recipe</a></li>
+            <li><a href="#">Log Out</a></li>
+            <li><a href="#">Log In</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+        </ul>
+    </header>
+
+    <!--Flash message-->
+    <div id="flash-messages" style="display: none;">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash-message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!--Main-->
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

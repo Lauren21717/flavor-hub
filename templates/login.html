@@ -1,28 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">Register</h3>
+<h3 class="center-align">Login</h3>
 
 <div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
         <div class="card-panel ">
-            <!--username-->
+            <!--username or email-->
             <div class="row">
                 <div class="input-field col s10 offset-m1">
-                    <i class="fa-solid fa-user prefix "></i>
-                    <input id="username" name="username" type="text" minlength="5" 
-                    maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                    <label for="username">Username</label>
+                    <i class="fa-solid fa-user-gear prefix"></i>
+                    <input id="username_or_email" name="username_or_email" type="text" minlength="5" 
+                    maxlength="15" pattern="^[a-zA-Z0-9@._-]{5,50}$" class="validate" required>
+                    <label for="username_or_email">Username or email</label>
                 </div>
             </div>
-            <!--email-->
-            <div class="row">
-                <div class="input-field col s10 offset-m1">
-                    <i class="fa-solid fa-envelope prefix"></i>
-                    <input id="email" name="email" type="email" class="validate" required>
-                    <label for="email">Email</label>
-                </div>
-            </div>
+
             <!--password-->
             <div class="row">
                 <div class="input-field col s10 offset-m1">
@@ -35,19 +28,19 @@
             <!--register-->
             <div class="row">
                 <button class=" col s4 offset-m4 btn amber darken-3 " type="submit">
-                    Register
+                    Login
                 </button>
             </div>
         </div>
     </form>
 </div>
 
-<!--Log In-->
+<!--Register-->
 <div class="row">
     <div class="col s12">
         <div class="center-align">
-            Already Registered? 
-            <a href="{{ url_for('login') }}" class="orange-text text-darken-4">Log In</a>
+            New Here? 
+            <a href="{{ url_for('register') }}" class="orange-text text-darken-4">Register Account</a>
         </div>
     </div>
 </div>

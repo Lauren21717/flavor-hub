@@ -39,8 +39,7 @@ def register():
         
         if existing_username and existing_email:
             flash("You have already registered, please log in.")
-            # change when login create
-            return redirect(url_for("register")) 
+            return redirect(url_for("login")) 
         elif existing_username:
             flash("Username already exists, please choose another username or log in.")
             return redirect(url_for("register")) 
@@ -63,6 +62,36 @@ def register():
         return redirect(url_for("register"))
         
     return render_template('register.html')
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        username_or_email = request.form.get("username_or_email").lower()
+        password = request.form.get("password")
+        
+        existing_user = mongo.db.users.find_one({
+            "$or": [
+                {"username": username_or_email},
+                {"email": username_or_email}
+            ]
+        })
+        
+        if existing_user:
+            if check_password_hash(
+                existing_user["password"], password):
+                    session["user"] = existing_user["username"]
+                    flash("Welcome, {}".format(existing_user["username"]))
+                    return redirect(url_for("index"))
+            else:
+                flash("Incorrect Username/Email and/or Password")
+                return redirect(url_for("login"))
+
+        else:
+            flash("Incorrect Username/Email and/or Password")
+            return redirect(url_for("login"))
+        
+    return render_template("login.html")
 
 
 if __name__ == "__main__":

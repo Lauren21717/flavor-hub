@@ -12,9 +12,13 @@
             <div class="input-field col s10 offset-m1">
                 <i class="fa-solid fa-folder-open prefix"></i>
                 <select id="category_name" name="category_name" class="validate" required>
-                    <option value="" disabled selected>Choose Category</option>
+                    <option value="" disabled>Choose Category</option>
                     {% for category in categories %}
-                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% if category.category_name == recipe.category_name %}
+                    <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                    {% else %}
+                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% endif %}
                     {% endfor %}
                 </select>
                 <label for="category_name">Category</label>
@@ -26,7 +30,7 @@
             <div class="input-field col s10 offset-m1">
                 <i class="fa-solid fa-pencil prefix"></i>
                 <input id="recipe_title" name="recipe_title" minlength="5" maxlength="50" type="text" class="validate"
-                    required>
+                    value="{{ recipe.recipe_title }}" required>
                 <label for="recipe_title">Recipe Title</label>
             </div>
         </div>
@@ -35,7 +39,8 @@
         <div class="row">
             <div class="input-field col s10 offset-m1">
                 <i class="fa-solid fa-globe prefix"></i>
-                <input id="cuisine" name="cuisine" minlength="5" maxlength="50" type="text" class="validate" required>
+                <input id="cuisine" name="cuisine" minlength="5" maxlength="50" type="text" class="validate"
+                    value="{{ recipe.cuisine }}" required>
                 <label for="cuisine">Cuisine</label>
             </div>
         </div>
@@ -44,7 +49,8 @@
         <div class="row">
             <div class="input-field col s10 offset-m1">
                 <i class="fa-regular fa-hourglass-half prefix"></i>
-                <input type="number" name="preparation_time" id="preparation_time" class="validate" required>
+                <input type="number" name="preparation_time" id="preparation_time" class="validate"
+                    value="{{ recipe.preparation_time }}" required>
                 <label for="preparation_time">Preparation Time(minutes)</label>
             </div>
         </div>
@@ -53,7 +59,8 @@
         <div class="row">
             <div class="input-field col s10 offset-m1">
                 <i class="fa-solid fa-clock prefix"></i>
-                <input type="number" name="cook_time" id="cook_time" class="validate" required>
+                <input type="number" name="cook_time" id="cook_time" class="validate" value="{{ recipe.cook_time }}"
+                    required>
                 <label for="cook_time">Cook Time(minutes)</label>
             </div>
         </div>
@@ -62,7 +69,8 @@
         <div class="row">
             <div class="input-field col s10 offset-m1">
                 <i class="fa-solid fa-image prefix"></i>
-                <input type="url" name="image_url" id="image_url" class="validate" required>
+                <input type="url" name="image_url" id="image_url" class="validate" value="{{ recipe.image_url }}"
+                    required>
                 <label for="image_url">Image URL</label>
             </div>
         </div>
@@ -71,8 +79,11 @@
         <div class="row">
             <div class="input-field col s10 offset-m1" id="ingredients-section">
                 <i class="fa-solid fa-list-ul prefix"></i>
-                <input id="ingredients" name="ingredients" minlength="5" maxlength="50" class="validate" required>
-                <label for="ingredients">Ingredients</label>
+                {% for ingredient in recipe.ingredients %}
+                <input id="ingredient{{ loop.index }}" name="ingredients" minlength="5" maxlength="50" class="validate"
+                    value="{{ ingredient }}" required>
+                <label for="ingredient{{ loop.index }}">Ingredients</label>
+                {% endfor %}
             </div>
         </div>
         <div class="row">
@@ -86,8 +97,12 @@
         <div class="row">
             <div class="input-field col s10 offset-m1" id="preparation-section">
                 <i class="fa-solid fa-list-ol prefix"></i>
-                <textarea id="preparation_step" name="preparation_step" minlength="5" maxlength="200" class="validate materialize-textarea" required></textarea>
-                <label for="preparation_step">Preparation Steps</label>
+                {% for step in recipe.preparation_step %}
+                    <textarea id="step{{ loop.index }}" name="preparation_step" minlength="5" maxlength="200"
+                        class="validate materialize-textarea" required>{{- step -}}</textarea>
+                    <label for="step{{ loop.index }}">Preparation Step {{ loop.index }}</label>
+                {% endfor %}
+
             </div>
         </div>
         <div class="row">
@@ -99,6 +114,8 @@
         <!-- Submit Button -->
         <div class="row">
             <div class="col s10 offset-m1 center-align">
+                <a href="{{ url_for('index') }}" class="btn-large blue-grey">
+                    Cancel<i class="fa-solid fa-circle-xmark right"></i></a>
                 <button type="submit" class="btn-large amber darken-2">
                     Edit Task<i class="fa-solid fa-pen-square right"></i>
                 </button>
@@ -108,4 +125,18 @@
     </form>
 </div>
 
+{% endblock %}
+{% block scripts %}
+<script>
+$(document).ready(function() {
+    $('textarea').each(function() {
+        M.textareaAutoResize(this);
+        $(this).siblings('label').addClass('active');
+    });
+
+    M.updateTextFields(); 
+
+    $('textarea').characterCounter();
+});
+</script>
 {% endblock %}

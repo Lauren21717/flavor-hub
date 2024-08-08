@@ -7,6 +7,7 @@ $(document).ready(function () {
     $('#flash-messages .flash-message').each(function () {
         alert($(this).text());
     });
+    $('select').formSelect();
 });
 
 

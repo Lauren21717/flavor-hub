@@ -7,3 +7,6 @@
 /* #flash-messages{
     display: none;
 } */
+.right-align{
+    float: right;
+}

@@ -3,9 +3,19 @@
 
     <h3 class="center-align">Manage Categories</h3>
 
+    <!-- Add Category -->
+    <div class="row">
+        <div class="col s12 center-align">
+            <a href="{{ url_for('add_category') }}" class="btn-large amber darken-3 text-shadow">
+                Add Category <i class="fa-solid fa-square-plus right"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Categories -->
     <div class="row">
         {% for category in categories %}
-            <div class="col s12 m3">
+            <div class="col s12 m4">
                 <div class="card yellow darken-3 text-shadow canter-align">
                     <div class="card-content white-text">
                         <span class="card-title">{{ category.category_name }}</span>

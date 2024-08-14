@@ -220,6 +220,17 @@ def delete_category(category_id):
     return redirect(url_for("get_categories"))
 
 
+@app.route('/recipe/<recipe_id>')
+def recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    
+    #change to 404 page when created
+    if not recipe:
+        return redirect(url_for("index"))
+    
+    return render_template("recipe.html", recipe=recipe)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

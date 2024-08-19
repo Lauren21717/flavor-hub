@@ -36,14 +36,31 @@ $(document).ready(function () {
      */
     $('#add-step').on('click', function () {
         stepCount++;
+        let stepDiv = $('<div>', {
+            class: 'input-field'
+        });
         let stepTextarea = $('<textarea>', {
-            name: 'preparation_steps',
-            class: 'validate materialize-textarea',
+            id: 'step_' + stepCount,
+            name: 'preparation_step',
+            class: 'materialize-textarea',
             minlength: '5',
             maxlength: '200',
             required: true
         });
-        $('#preparation-section').append(stepTextarea);
+        let stepLabel = $('<label>', {
+            for: 'step_' + stepCount,
+            text: 'Step ' + stepCount
+        });
+        stepDiv.append(stepTextarea, stepLabel);
+        $('#preparation-section').append(stepDiv);
+
+        stepTextarea.trigger('autoreasize');
+        stepLabel.addClass('active');
+        M.textareaAutoResize(stepTextarea[0]);
+
+        setTimeout(function() {
+            stepTextarea.focus();
+        }, 0);
     });
 
     // This code was copied from Code Institude on 08-08-2024.

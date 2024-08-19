@@ -19,15 +19,27 @@ $(document).ready(function () {
      */
     $('#add-ingredient').on('click', function () {
         ingredientCount++;
+        let ingredientDiv = $('<div>', {
+            class: 'input-field'
+        });
         let ingredientInput = $('<input>', {
             type: 'text',
+            id: 'ingredient_' + ingredientCount, 
             name: 'ingredients',
             class: 'validate',
             minlength: '5',
             maxlength: '50',
             required: true
         });
-        $('#ingredients-section').append(ingredientInput)
+        let ingredientLabel = $('<label>', {
+            for: 'ingredient_' + ingredientCount,
+            text: 'ingredient ' + ingredientCount
+        });
+        ingredientDiv.append(ingredientInput, ingredientLabel);
+        $('#ingredients-section').append(ingredientDiv);
+
+        ingredientLabel.addClass('active');
+        M.updateTextFields();
     });
 
     /**

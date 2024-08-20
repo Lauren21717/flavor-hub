@@ -1,12 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Imprima&family=Maitree:wght@200;300;400;500;600;700&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Imprima',sans-serif;
+    font-family: 'Imprima', sans-serif;
 }
+
 /* #flash-messages{
     display: none;
 } */
-.right-align{
+.right-align {
     float: right;
+}
+
+/*--------Footer-------*/
+.social-link {
+    display: flex;
+    flex-direction: row;
+}
+
+.social-link li {
+    padding-right: .625rem;
+}
+
+.social-link li a i {
+    padding: .625rem;
+    border-radius: 50%;
+    color: #fafafa;
+    background-color: #ef6c00 ;
+}
+
+.social-link li a i:hover {
+    color: #ef6c00 ;
+    background-color: #fafafa;
 }

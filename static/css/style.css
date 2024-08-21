@@ -67,6 +67,22 @@
     background-color: #fafafa;
 }
 
+/*-------About--------*/
+.about-section {
+    width: 100%;
+    margin: auto;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.about-section h5{
+    font-weight: 800;
+
+}
+
+.about-section img {
+    width: 100%;
+    border-radius: 1rem;
+}
 /*-------Animation------*/
 @keyframes fadeIn {
     0% {

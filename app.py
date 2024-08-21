@@ -19,6 +19,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# Index page
 @app.route("/")
 @app.route("/index")
 def index():
@@ -26,6 +27,7 @@ def index():
     return render_template('index.html', recipes=recipes)
 
 
+#Search Bar
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -33,6 +35,7 @@ def search():
     return render_template('index.html', recipes=recipes)
 
 
+#Register Page
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -70,6 +73,7 @@ def register():
     return render_template('register.html')
 
 
+#Login Page
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -100,17 +104,20 @@ def login():
     return render_template("login.html")
 
 
+#Profile Page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     
     if session["user"]:
-        return render_template("profile.html", username=username)
+        user_recipes = list(mongo.db.recipes.find({"created_by": session["user"]}))
+        return render_template("profile.html", username=username, user_recipes=user_recipes)
 
     return redirect(url_for("login"))
 
 
+#Logout functionality
 @app.route("/logout")
 def logout():
     # Code copied from Mini Project | Putting It All Together tutorial at https://learn.codeinstitute.net/
@@ -119,6 +126,7 @@ def logout():
     return redirect(url_for("login"))
 
 
+#Add recipe page
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
@@ -144,6 +152,7 @@ def add_recipe():
     return render_template("add_recipe.html", categories=categories)
 
 
+#Edit Recipe Page
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
@@ -171,6 +180,7 @@ def edit_recipe(recipe_id):
     return render_template("edit_recipe.html", recipe=recipe, categories=categories)
 
 
+#Delete functionality
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})  
@@ -178,7 +188,7 @@ def delete_recipe(recipe_id):
     return redirect(url_for("index"))
 
 
-
+#Admin Page Get Categories functionality
 @app.route("/get_categories")
 # Code copied from Mini Project | Putting It All Together tutorial at https://learn.codeinstitute.net/
 def get_categories():
@@ -186,6 +196,7 @@ def get_categories():
     return render_template("categories.html", categories=categories)
 
 
+#Admin Page Add Categories functionality
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
@@ -199,6 +210,7 @@ def add_category():
     return render_template("add_category.html")
 
 
+#Admin Page Edit Categories functionality
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
     if request.method == "POST":
@@ -213,6 +225,7 @@ def edit_category(category_id):
     return render_template("edit_category.html", category=category)
 
 
+#Admin Page Delete Categories functionality
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
@@ -220,6 +233,7 @@ def delete_category(category_id):
     return redirect(url_for("get_categories"))
 
 
+#Recipe Page
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})

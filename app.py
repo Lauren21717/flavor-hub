@@ -129,27 +129,33 @@ def logout():
 #Add recipe page
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
-    if request.method == "POST":
-        ingredients = request.form.getlist("ingredients")
-        preparation_step = request.form.getlist("preparation_step")
+    try:
+        if request.method == "POST":
+            ingredients = request.form.getlist("ingredients")
+            preparation_step = request.form.getlist("preparation_step")
+            
+            recipe = {
+                "category_name": request.form.get("category_name"),
+                "recipe_title": request.form.get("recipe_title"),
+                "cuisine": request.form.get("cuisine"),
+                "preparation_time": request.form.get("preparation_time"),
+                "cook_time": request.form.get("cook_time"),
+                "image_url": request.form.get("image_url"),
+                "ingredients": [ingredient.strip() for ingredient in ingredients],
+                "preparation_step": [step.strip() for step in preparation_step],
+                "created_by": session["user"]
+            }
+            mongo.db.recipes.insert_one(recipe)
+            flash("Recipe Successfully Added")
+            return redirect(url_for("index"))
         
-        recipe = {
-            "category_name": request.form.get("category_name"),
-            "recipe_title": request.form.get("recipe_title"),
-            "cuisine": request.form.get("cuisine"),
-            "preparation_time": request.form.get("preparation_time"),
-            "cook_time": request.form.get("cook_time"),
-            "image_url": request.form.get("image_url"),
-            "ingredients": [ingredient.strip() for ingredient in ingredients],
-            "preparation_step": [step.strip() for step in preparation_step],
-            "created_by": session["user"]
-        }
-        mongo.db.recipes.insert_one(recipe)
-        flash("Recipe Successfully Added")
-        return redirect(url_for("index"))
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        return render_template("add_recipe.html", categories=categories)
     
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_recipe.html", categories=categories)
+    except Exception as e:
+        app.logger.error(f"Error adding recipe: {e}")
+        flash("An error occurred while adding the recipe. Please try again later.")
+        return redirect(url_for("add_recipe"))
 
 
 #Edit Recipe Page

@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template, 
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, abort)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -192,37 +192,52 @@ def delete_recipe(recipe_id):
 @app.route("/get_categories")
 # Code copied from Mini Project | Putting It All Together tutorial at https://learn.codeinstitute.net/
 def get_categories():
-    categories = list(mongo.db.categories.find().sort("category_name", 1))
-    return render_template("categories.html", categories=categories)
+    current_user = mongo.db.users.find_one({"username": session["user"]})
+    
+    if current_user and current_user["username"] == "admin":
+        categories = list(mongo.db.categories.find().sort("category_name", 1))
+        return render_template("categories.html", categories=categories)
+
+    abort(403)
 
 
 #Admin Page Add Categories functionality
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
-    if request.method == "POST":
-        category = {
-            "category_name": request.form.get("category_name")
-        }
-        mongo.db.categories.insert_one(category)
-        flash("New Category Added")
-        return redirect(url_for("get_categories"))
+    current_user = mongo.db.users.find_one({"username": session["user"]})
     
-    return render_template("add_category.html")
+    if current_user and current_user["username"] == "admin":
+        if request.method == "POST":
+            category = {
+                "category_name": request.form.get("category_name")
+            }
+            mongo.db.categories.insert_one(category)
+            flash("New Category Added")
+            return redirect(url_for("get_categories"))
+        
+        return render_template("add_category.html")
+
+    abort(403)
 
 
 #Admin Page Edit Categories functionality
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
-    if request.method == "POST":
-        submit = {
-            "category_name": request.form.get("category_name")
-        }
-        mongo.db.categories.update_one({"_id": ObjectId(category_id)}, {"$set": submit})
-        flash("Category Updated")
-        return redirect(url_for("get_categories"))
+    current_user = mongo.db.users.find_one({"username": session["user"]})
     
-    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-    return render_template("edit_category.html", category=category)
+    if current_user and current_user["username"] == "admin":
+        if request.method == "POST":
+            submit = {
+                "category_name": request.form.get("category_name")
+            }
+            mongo.db.categories.update_one({"_id": ObjectId(category_id)}, {"$set": submit})
+            flash("Category Updated")
+            return redirect(url_for("get_categories"))
+        
+        category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+        return render_template("edit_category.html", category=category)
+
+    abort(403)
 
 
 #Admin Page Delete Categories functionality
@@ -238,9 +253,8 @@ def delete_category(category_id):
 def recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     
-    #change to 404 page when created
     if not recipe:
-        return redirect(url_for("index"))
+        abort(404)
     
     return render_template("recipe.html", recipe=recipe)
 
@@ -250,15 +264,18 @@ def recipe(recipe_id):
 def page_not_found(e):
     return render_template('404.html'), 404
 
+
 #403
 @app.errorhandler(403)
 def forbidden(e):
     return render_template('403.html'), 403
 
+
 #500
 @app.errorhandler(500)
 def internal_server(e):
     return render_template('500.html'), 500
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

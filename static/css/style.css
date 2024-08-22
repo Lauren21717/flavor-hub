@@ -13,6 +13,13 @@
     float: right;
 }
 
+/*--------Navbar-------*/
+.nav-logo {
+    max-height: 64px;
+    width: auto;
+    vertical-align: middle;
+}
+
 /*--------Hero---------*/
 .hero-section {
     display: flex;
@@ -107,5 +114,12 @@
 
     100% {
         opacity: 1;
+    }
+}
+
+/*-------responsiveness--------*/
+@media only screen and (max-width: 600px) {
+    .nav-logo {
+        max-height: 56px;
     }
 }

@@ -57,7 +57,7 @@
         <!--mobile sidenav-->
         <ul class="sidenav" id="mobile-demo">
             <li>
-                <h4 class="center-align amber-text text-darken-4">Flavor Hub</h4>
+                <a href="{{ url_for('index') }}" class="brand-logo"><img src="{{ url_for('static', filename='images/logo_transparent.png') }}" alt="" class="nav-logo"></a>
             </li>
             <li><a href="{{ url_for('index') }}">Home</a></li>
             {% if session.user %}

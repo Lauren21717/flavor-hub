@@ -107,6 +107,12 @@
     margin-bottom: 0.5rem;
 }
 
+/*-------Profile Page-------*/
+.profile-hading {
+    border-radius: 0.5rem;
+    margin-top: 10%;
+}
+
 /*-------Animation------*/
 @keyframes fadeIn {
     0% {

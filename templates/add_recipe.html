@@ -35,7 +35,7 @@
         <div class="row">
             <div class="input-field col s10 offset-m1">
                 <i class="fa-solid fa-globe prefix"></i>
-                <input id="cuisine" name="cuisine" minlength="5" maxlength="50" type="text" class="validate" required>
+                <input id="cuisine" name="cuisine" minlength="5" maxlength="50" type="text" class="validate" placeholder="Optional">
                 <label for="cuisine">Cuisine</label>
             </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="row">
             <div class="input-field col s10 offset-m1">
                 <i class="fa-regular fa-hourglass-half prefix"></i>
-                <input type="number" name="preparation_time" id="preparation_time" class="validate" required>
+                <input type="number" name="preparation_time" id="preparation_time" class="validate" min="1" required>
                 <label for="preparation_time">Preparation Time(minutes)</label>
             </div>
         </div>
@@ -53,7 +53,7 @@
         <div class="row">
             <div class="input-field col s10 offset-m1">
                 <i class="fa-solid fa-clock prefix"></i>
-                <input type="number" name="cook_time" id="cook_time" class="validate" required>
+                <input type="number" name="cook_time" id="cook_time" class="validate" min="1" required>
                 <label for="cook_time">Cook Time(minutes)</label>
             </div>
         </div>

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container center">
+    <div class="row">
+        <div class="col s12 card-panel amber lighten-5 m8 offset-m2 center">
+            <div class="row">
+                <div class="col s12">
+                    <h3>403</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 ">
+                    <h5>Oops, No Peeking into the Secret Recipe!</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <p >Sorry, but this page is reserved for our top chefs. You can head back to the homepage or explore our other recipes that are open to everyone!</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center">
+                    <a class="btn amber darken-4 white-text" href="{{ url_for('index') }}">Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

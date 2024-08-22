@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container center">
+    <div class="row">
+        <div class="col s12 card-panel amber lighten-5 m8 offset-m2 center">
+            <div class="row">
+                <div class="col s12">
+                    <h3>500</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 ">
+                    <h5>Something Went Wrong on Our End</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <p >We’re sorry, but our server encountered an unexpected issue. Our team is already on it! Please try again later or contact support if the issue persists.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center">
+                    <a class="btn amber darken-4 white-text" href="{{ url_for('index') }}">Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

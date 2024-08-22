@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     // This is the function to display the flash message
     $('#flash-messages .flash-message').each(function () {
-        alert($(this).text());
+        swal($(this).text());
     });
 
     let ingredientCount = 1;

@@ -40,7 +40,7 @@
             <div class="input-field col s10 offset-m1">
                 <i class="fa-solid fa-globe prefix"></i>
                 <input id="cuisine" name="cuisine" minlength="5" maxlength="50" type="text" class="validate"
-                    value="{{ recipe.cuisine }}" required>
+                    value="{{ recipe.cuisine }}" placeholder="Optional">
                 <label for="cuisine">Cuisine</label>
             </div>
         </div>
@@ -50,7 +50,7 @@
             <div class="input-field col s10 offset-m1">
                 <i class="fa-regular fa-hourglass-half prefix"></i>
                 <input type="number" name="preparation_time" id="preparation_time" class="validate"
-                    value="{{ recipe.preparation_time }}" required>
+                    value="{{ recipe.preparation_time }}" min="1" required>
                 <label for="preparation_time">Preparation Time(minutes)</label>
             </div>
         </div>
@@ -60,7 +60,7 @@
             <div class="input-field col s10 offset-m1">
                 <i class="fa-solid fa-clock prefix"></i>
                 <input type="number" name="cook_time" id="cook_time" class="validate" value="{{ recipe.cook_time }}"
-                    required>
+                    min="1" required>
                 <label for="cook_time">Cook Time(minutes)</label>
             </div>
         </div>

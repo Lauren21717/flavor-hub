@@ -25,7 +25,7 @@
 .hero-section {
     display: flex;
     align-items: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/Landingpage.webp");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/hero.png");
     background-position: center;
     background-size: cover;
     border-radius: 1rem;
@@ -113,6 +113,23 @@
     margin-top: 10%;
 }
 
+/*-------Add recipe and Edit recipe-----*/
+.delete-ingredient, .delete-step {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ingredient-field, .step-field {
+    position: relative;
+    padding-right: 20px;
+}
+
+.ingredient-field.original, .step-field.original {
+    padding-right: 0;
+}
 /*-------Animation------*/
 @keyframes fadeIn {
     0% {
@@ -130,3 +147,4 @@
         max-height: 56px;
     }
 }
+

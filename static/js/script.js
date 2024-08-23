@@ -10,21 +10,20 @@ $(document).ready(function () {
         swal($(this).text());
     });
 
-    let ingredientCount = 1;
-    let stepCount = 1;
     /**
-     * Event handler for the "Add Ingredient button"
-     * When the button click 
-     * it create a new input element for ingredients
-     */
-    $('#add-ingredient').on('click', function () {
-        ingredientCount++;
+    * Adds a new input field for an ingredient.
+    * 
+    * This function dynamically creates a new input field for the user to enter an ingredient.
+    * It generates a new input element, a corresponding label, and a delete icon.
+    * The new input field is appended to the ingredients section of the form.
+    * After adding the new ingredient field, it updates all ingredient labels to ensure proper numbering.
+    */
+    function addIngredientField() {
         let ingredientDiv = $('<div>', {
             class: 'input-field'
         });
         let ingredientInput = $('<input>', {
             type: 'text',
-            id: 'ingredient_' + ingredientCount, 
             name: 'ingredients',
             class: 'validate',
             minlength: '5',
@@ -32,27 +31,37 @@ $(document).ready(function () {
             required: true
         });
         let ingredientLabel = $('<label>', {
-            for: 'ingredient_' + ingredientCount,
-            text: 'ingredient ' + ingredientCount
+            text: 'Ingredient ' + ($('#ingredients-section .input-field').length + 1)
         });
-        ingredientDiv.append(ingredientInput, ingredientLabel);
+        let deleteIcon = $('<i>', {
+            class: 'fa-solid fa-times delete-ingredient'
+        });
+        ingredientDiv.append(ingredientInput, ingredientLabel, deleteIcon);
         $('#ingredients-section').append(ingredientDiv);
 
         ingredientLabel.addClass('active');
         M.updateTextFields();
+        updateIngredientLabels();
+    }
+
+    // Event handler for the "Add Ingredient" button
+    $('#add-ingredient').on('click', function () {
+        addIngredientField();
     });
 
     /**
-     * Event handler for the "Add Step" button
-     * it create a new textarea element for preparation steps
+     * Adds a new textarea field for a preparation step.
+     * 
+     * This function dynamically creates a new textarea field for the user to enter a preparation step.
+     * It generates a new textarea element, a corresponding label, and a delete icon.
+     * The new textarea field is appended to the preparation steps section of the form.
+     * After adding the new step field, it updates all step labels to ensure proper numbering.
      */
-    $('#add-step').on('click', function () {
-        stepCount++;
+    function addStepField() {
         let stepDiv = $('<div>', {
             class: 'input-field'
         });
         let stepTextarea = $('<textarea>', {
-            id: 'step_' + stepCount,
             name: 'preparation_step',
             class: 'materialize-textarea',
             minlength: '5',
@@ -60,20 +69,54 @@ $(document).ready(function () {
             required: true
         });
         let stepLabel = $('<label>', {
-            for: 'step_' + stepCount,
-            text: 'Step ' + stepCount
+            text: 'Step ' + ($('#preparation-section .input-field').length + 1)
         });
-        stepDiv.append(stepTextarea, stepLabel);
+        let deleteIcon = $('<i>', {
+            class: 'fa-solid fa-times delete-step'
+        });
+        stepDiv.append(stepTextarea, stepLabel, deleteIcon);
         $('#preparation-section').append(stepDiv);
 
         stepTextarea.trigger('autoreasize');
         stepLabel.addClass('active');
         M.textareaAutoResize(stepTextarea[0]);
 
-        setTimeout(function() {
+        setTimeout(function () {
             stepTextarea.focus();
         }, 0);
+        updateStepLabels();
+    };
+    // Event handler for the "Add Step" button
+    $('#add-step').on('click', function () {
+        addStepField();
     });
+
+    //Delete Ingredient
+    $(document).on('click', '.delete-ingredient', function () {
+        $(this).closest('.input-field').remove();
+        updateIngredientLabels();
+    });
+
+    // Delete Step
+    $(document).on('click', '.delete-step', function () {
+        $(this).closest('.input-field').remove();
+        updateStepLabels();
+    });
+
+    //Update Ingredient Lables 
+    function updateIngredientLabels() {
+        $('#ingredients-section .input-field').each(function (index) {
+            $(this).find('label').text('Ingredient ' + (index + 2));
+        });
+    }
+
+    //Update Step Labels
+    function updateStepLabels() {
+        $('#preparation-section .input-field').each(function (index) {
+            $(this).find('label').text('Step ' + (index + 2));
+        });
+    }
+
 
     // This code was copied from Code Institude on 08-08-2024.
     // Original Author: Tim Nelson
@@ -100,7 +143,7 @@ $(document).ready(function () {
         }
         $(".select-wrapper input.select-dropdown").on("focusin", function () {
             $(this).parent(".select-wrapper").on("change", function () {
-                if ($(this).children("ul").children("li.selected:not(.disabled)").on("click", function () {})) {
+                if ($(this).children("ul").children("li.selected:not(.disabled)").on("click", function () { })) {
                     $(this).children("input").css(classValid);
                 }
             });

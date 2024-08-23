@@ -1,8 +1,6 @@
 $(document).ready(function () {
     // Initialize the side navigation bar
-    $('.sidenav').sidenav({
-        edge: "right"
-    });
+    $('.sidenav').sidenav();
     $('select').formSelect();
 
     // This is the function to display the flash message

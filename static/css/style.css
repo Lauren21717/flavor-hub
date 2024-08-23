@@ -6,6 +6,12 @@
     font-family: 'Imprima', sans-serif;
 }
 
+body {
+    background-color: #FAF9F4;
+}
+
+
+
 /* #flash-messages{
     display: none;
 } */
@@ -13,13 +19,75 @@
     float: right;
 }
 
+/*-------- Reusable Button Styles --------*/
+.blue-button {
+    background: #0D3B66;
+    border-radius: 0.5rem;
+    color: #FAF0CA;
+}
+
+.yellow-button {
+    background: #F4D35E;
+    color: #0D3B66;
+    border-radius: 0.5rem;
+}
+
+.orange-button {
+    background: #F9573B;
+    border-radius: 0.5rem;
+    color: #FAF0CA;
+}
+
+.orange-light-button {
+    background: #EE7C1B;
+    border-radius: 0.5rem;
+    color: #FAF0CA;
+}
+
+.blue-button:hover {
+    background: rgb(4, 32, 57);
+    color: #ffed8a;
+}
+
+.yellow-button:hover {
+    background: rgb(173, 148, 60);
+    color: #004080;
+}
+
+.orange-button:hover {
+    background: #c6452e;
+    color: #FFFFFF;
+}
+
+.orange-light-button:hover {
+    background: #b25e14;
+    color: #FFFFFF;
+}
+
+/*-------- Reusable Text Styles --------*/
+.blue-text-style {
+    color: #0D3B66;
+}
+
 /*--------Navbar-------*/
+nav {
+    background: #EE7C1B;
+}
+
 .nav-logo {
     max-height: 64px;
     width: auto;
     vertical-align: middle;
 }
 
+.sidenav {
+    background-color: #EE7C1B;
+}
+
+.sidenav li a {
+    color: #FAF9F4;
+    text-decoration: none;
+}
 
 /*--------Hero---------*/
 .hero-section {
@@ -42,18 +110,40 @@
     padding-bottom: 6rem;
 }
 
-.hero-section .hero-content h1{
+.hero-section .hero-content h1 {
     font-size: 4rem;
     color: #fafafa;
 
 }
 
-.hero-section .hero-content p{
+.hero-section .hero-content p {
     font-size: 1.25rem;
     color: #fafafa;
 }
 
+/*--------Card---------*/
+.card {
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: #FAF0CA;
+    color: #092B4A;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 /*--------Footer-------*/
+.page-footer {
+    color: #faf0ca;
+    background-color: #ee964b;
+}
+
+.footer-link li a {
+    text-decoration: none;
+    color: #faf0ca;
+}
+
 .social-link {
     display: flex;
     flex-direction: row;
@@ -66,14 +156,15 @@
 .social-link li a i {
     padding: .625rem;
     border-radius: 50%;
-    color: #fafafa;
-    background-color: #ef6c00 ;
+    color: #faf0ca;
+    background-color: #F95738;
 }
 
 .social-link li a i:hover {
-    color: #ef6c00 ;
-    background-color: #fafafa;
+    color: #F95738;
+    background-color: #faf0ca;
 }
+
 
 /*-------About--------*/
 .about-section {
@@ -82,7 +173,8 @@
     padding-top: 3rem;
     padding-bottom: 3rem;
 }
-.about-section h5{
+
+.about-section h5 {
     font-weight: 800;
 
 }
@@ -93,8 +185,9 @@
 }
 
 /*-------Search Bar-----*/
-.search-section{
+.search-section {
     border-radius: 1rem;
+    background-color: #FAF0CA;
 }
 
 .search-section button {
@@ -110,11 +203,32 @@
 /*-------Profile Page-------*/
 .profile-hading {
     border-radius: 0.5rem;
-    margin-top: 10%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url("/static/images/profile.png");
+    background-position: center;
+    background-size: cover;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.profile-hading h3 {
+    color: #fafafa;
+}
+
+.my-recipe-section h3 {
+    color: #092B4A;
+}
+
+.my-recipe-section .card-panel {
+    background-color: #FAF0CA;
+}
+
+.my-recipe-section .card-panel h4 {
+    color: #092B4A;
 }
 
 /*-------Add recipe and Edit recipe-----*/
-.delete-ingredient, .delete-step {
+.delete-ingredient,
+.delete-step {
     cursor: pointer;
     position: absolute;
     right: 0;
@@ -122,14 +236,31 @@
     transform: translateY(-50%);
 }
 
-.ingredient-field, .step-field {
+.ingredient-field,
+.step-field {
     position: relative;
     padding-right: 20px;
 }
 
-.ingredient-field.original, .step-field.original {
+.ingredient-field.original,
+.step-field.original {
     padding-right: 0;
 }
+
+.form-container {
+    border-radius: 1rem;
+    background-color: #FAF0CA;
+}
+
+.form-heading {
+    background: #0D3B66;
+    margin-top: 5%;
+    color: #FAF0CA;
+    border-radius: 1rem;
+    padding: 0.3rem;
+}
+
+
 /*-------Animation------*/
 @keyframes fadeIn {
     0% {
@@ -141,10 +272,11 @@
     }
 }
 
+
+
 /*-------responsiveness--------*/
 @media only screen and (max-width: 600px) {
     .nav-logo {
         max-height: 56px;
     }
 }
-

@@ -28,7 +28,7 @@
 
 
 <!-- search recipe -->
-<div class="row card-panel amber lighten-5 search-section">
+<div class="row card-panel search-section">
     <form action="{{ url_for('search') }}" method="POST" class="col s12">
         <div class="row valign-wrapper center-align">
             <div class="input-field col s12 m8">
@@ -37,9 +37,9 @@
                 <label for="query">Search Recipe</label>
             </div>
             <div class="col s12 m4">
-                <a href="{{ url_for('index') }}" class="btn blue-grey">
+                <a href="{{ url_for('index') }}" class="btn blue-button">
                     Cancel<i class="fa-solid fa-circle-xmark left"></i></a>
-                <button type="submit" class="btn amber darken-2">
+                <button type="submit" class="btn orange-light-button">
                     Submit<i class="fa-solid fa-magnifying-glass left"></i>
             </div>
         </div>

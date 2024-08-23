@@ -22,10 +22,9 @@ $(document).ready(function () {
         let ingredientDiv = $('<div>', {
             class: 'input-field'
         });
-        let ingredientInput = $('<input>', {
-            type: 'text',
+        let ingredientTextarea = $('<textarea>', {
             name: 'ingredients',
-            class: 'validate',
+            class: 'materialize-textarea validate',
             minlength: '5',
             maxlength: '50',
             required: true
@@ -36,11 +35,17 @@ $(document).ready(function () {
         let deleteIcon = $('<i>', {
             class: 'fa-solid fa-times delete-ingredient'
         });
-        ingredientDiv.append(ingredientInput, ingredientLabel, deleteIcon);
+        ingredientDiv.append(ingredientTextarea, ingredientLabel, deleteIcon);
         $('#ingredients-section').append(ingredientDiv);
 
         ingredientLabel.addClass('active');
+        ingredientTextarea.trigger('autoresize');
+        M.textareaAutoResize(ingredientTextarea[0]);
         M.updateTextFields();
+
+        setTimeout(function () {
+            ingredientTextarea.focus();
+        }, 0);
         updateIngredientLabels();
     }
 
@@ -63,7 +68,7 @@ $(document).ready(function () {
         });
         let stepTextarea = $('<textarea>', {
             name: 'preparation_step',
-            class: 'materialize-textarea',
+            class: 'materialize-textarea validate',
             minlength: '5',
             maxlength: '200',
             required: true
@@ -77,7 +82,7 @@ $(document).ready(function () {
         stepDiv.append(stepTextarea, stepLabel, deleteIcon);
         $('#preparation-section').append(stepDiv);
 
-        stepTextarea.trigger('autoreasize');
+        stepTextarea.trigger('autoresize');
         stepLabel.addClass('active');
         M.textareaAutoResize(stepTextarea[0]);
 
@@ -161,5 +166,6 @@ $(document).ready(function () {
             }
         });
     };
-
+    M.AutoInit();
+    M.updateTextFields();
 });

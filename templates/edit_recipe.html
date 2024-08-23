@@ -78,11 +78,14 @@
         <!-- Ingredients -->
         <div class="row">
             <div class="input-field col s10 offset-m1" id="ingredients-section">
-                <i class="fa-solid fa-list-ul prefix"></i>
                 {% for ingredient in recipe.ingredients %}
-                <input id="ingredient{{ loop.index }}" name="ingredients" minlength="5" maxlength="50" class="validate"
-                    value="{{ ingredient }}" required>
-                <label for="ingredient{{ loop.index }}">Ingredients</label>
+                    <div class="input-field">
+                        <i class="fa-solid fa-list-ul prefix"></i>
+                        <textarea id="ingredient{{ loop.index }}" name="ingredients" minlength="5" maxlength="50" 
+                            class="validate materialize-textarea" required>{{- ingredient -}}</textarea>
+                        <label for="ingredient{{ loop.index }}">Ingredients</label>
+                        <i class="fa-solid fa-times delete-ingredient"></i>
+                    </div>
                 {% endfor %}
             </div>
         </div>
@@ -96,11 +99,14 @@
         <!-- Preparation Steps -->
         <div class="row">
             <div class="input-field col s10 offset-m1" id="preparation-section">
-                <i class="fa-solid fa-list-ol prefix"></i>
                 {% for step in recipe.preparation_step %}
-                    <textarea id="step{{ loop.index }}" name="preparation_step" minlength="5" maxlength="200"
-                        class="validate materialize-textarea" required>{{- step -}}</textarea>
-                    <label for="step{{ loop.index }}">Preparation Step {{ loop.index }}</label>
+                    <div class="input-field">
+                        <i class="fa-solid fa-list-ol prefix"></i>
+                        <textarea id="step{{ loop.index }}" name="preparation_step" minlength="5" maxlength="200"
+                            class="validate materialize-textarea" required>{{- step -}}</textarea>
+                        <label for="step{{ loop.index }}">Preparation Step {{ loop.index }}</label>
+                        <i class="fa-solid fa-times delete-step"></i>
+                    </div>
                 {% endfor %}
 
             </div>
@@ -117,7 +123,7 @@
                 <a href="{{ url_for('index') }}" class="btn-large blue-grey">
                     Cancel<i class="fa-solid fa-circle-xmark right"></i></a>
                 <button type="submit" class="btn-large amber darken-2">
-                    Edit Task<i class="fa-solid fa-pen-square right"></i>
+                    Edit Recipe<i class="fa-solid fa-pen-square right"></i>
                 </button>
             </div>
         </div>

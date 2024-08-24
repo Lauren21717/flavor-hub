@@ -337,6 +337,16 @@ def internal_server(e):
     return render_template('500.html'), 500
 
 
+#Contact
+@app.route("/contact", methods=["GET"])
+def contact():
+    """
+    Renders the contact page
+    """
+    email_api = os.environ.get("EMAIL_API")
+    return render_template("contact.html", email_api=email_api)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

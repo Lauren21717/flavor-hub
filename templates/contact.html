@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel form-heading">
+            <h3 class="center-align">Contact Us</h3>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <form class="col s12 m8 offset-m2" id="contact-form" onsubmit="return sendMail(this);">
+        <div class="card-panel form-container">
+            <!--name-->
+            <div class="row">
+                <div class="input-field col s10 offset-m1">
+                    <i class="fa-solid fa-user prefix"></i>
+                    <input id="name" name="name" type="text" class="validate" required>
+                    <label for="name">Your Name</label>
+                </div>
+            </div>
+
+            <!--email-->
+            <div class="row">
+                <div class="input-field col s10 offset-m1">
+                    <i class="fa-solid fa-envelope prefix"></i>
+                    <input id="email" name="email" type="email" class="validate" required>
+                    <label for="email">Email</label>
+                </div>
+            </div>
+
+            <!--message-->
+            <div class="row">
+                <div class="input-field col s10 offset-m1">
+                    <i class="fa-solid fa-message prefix"></i>
+                    <textarea id="message" name="message" minlength="5" maxlength="500" class="validate materialize-textarea" required></textarea>
+                    <label for="message">Message</label>
+                </div>
+            </div>
+
+            <!--submit-->
+            <div class="row">
+                <button class=" col s4 offset-m4 btn orange-light-button " type="submit">
+                    Get in touch!
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/email.js') }}"></script>
+{% endblock %}

@@ -93,32 +93,36 @@ nav {
 .hero-section {
     display: flex;
     align-items: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/hero.png");
+    background-image: linear-gradient(rgba(254, 201, 127, 0.8), rgba(250, 236, 217, 0.6)), url("/static/images/hero.png");
     background-position: center;
     background-size: cover;
     border-radius: 1rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
-
+    justify-content: center;
 }
 
 .hero-section .hero-content {
     max-width: 60rem;
     animation: fadeIn 3s;
-    padding-left: 4%;
     padding-top: 6rem;
     padding-bottom: 6rem;
+    text-align: center;
+    
 }
 
 .hero-section .hero-content h1 {
     font-size: 4rem;
-    color: #fafafa;
+    color: #0D3B66;
+    font-weight: 800;
 
 }
 
 .hero-section .hero-content p {
     font-size: 1.25rem;
-    color: #fafafa;
+    color: #092B4A;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
 }
 
 /*-------Search Bar-----*/
@@ -202,7 +206,7 @@ nav {
 
 
 /*-------Profile Page-------*/
-.profile-heading p{
+.profile-heading p {
     padding-bottom: 5%;
 }
 
@@ -221,6 +225,7 @@ nav {
 .my-recipe-section .home-btn-div {
     margin-bottom: 3%;
 }
+
 /*-------Add recipe and Edit recipe-----*/
 .delete-ingredient,
 .delete-step {

@@ -7,7 +7,11 @@
     <div class="hero-content">
         <h1>Welcome to Flavor Hub</h1>
         <p>Discover a world of delicious recipes and culinary inspiration.</p>
-
+        {% if session.user %}
+            <a href="{{ url_for('add_recipe') }}" class="btn orange-button">Add recipe</a>
+        {% else %}
+            <a href="{{ url_for('register') }} " class="btn orange-button">Register</a>
+        {% endif %}
     </div>
 </div>
 

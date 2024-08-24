@@ -3,6 +3,7 @@ $(document).ready(function () {
     $('.sidenav').sidenav();
     $('select').formSelect();
 
+    //https://sweetalert.js.org/guides/
     // This is the function to display the flash message
     $('#flash-messages .flash-message').each(function () {
         swal({
@@ -14,6 +15,7 @@ $(document).ready(function () {
         });
     });
 
+    //https://sweetalert.js.org/guides/
     // Delete Recipe
     $('.delete-recipe').on('click', function (e) {
         e.preventDefault();

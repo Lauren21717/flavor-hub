@@ -101,7 +101,7 @@ nav {
 .hero-section {
     display: flex;
     align-items: center;
-    background-image: linear-gradient(rgba(254, 201, 127, 0.8), rgba(250, 236, 217, 0.6)), url("/static/images/hero.png");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/images/hero.png");
     background-position: center;
     background-size: cover;
     border-radius: 1rem;
@@ -121,14 +121,13 @@ nav {
 
 .hero-section .hero-content h1 {
     font-size: 4rem;
-    color: #0D3B66;
+    color: #FAF0CA;
     font-weight: 800;
-
 }
 
 .hero-section .hero-content p {
     font-size: 1.25rem;
-    color: #092B4A;
+    color: #FAF0CA;
     font-weight: 600;
     margin-bottom: 1.25rem;
 }

@@ -121,6 +121,20 @@ nav {
     color: #fafafa;
 }
 
+/*-------Search Bar-----*/
+.search-section {
+    border-radius: 1rem;
+    background-color: #FAF0CA;
+}
+
+.search-section button {
+    margin-bottom: 0.5rem;
+}
+
+.search-section a {
+    margin-bottom: 0.5rem;
+}
+
 /*--------Card---------*/
 .card {
     border-radius: 1rem;
@@ -132,6 +146,8 @@ nav {
 .card:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+
 
 /*--------Footer-------*/
 .page-footer {
@@ -184,34 +200,10 @@ nav {
     border-radius: 1rem;
 }
 
-/*-------Search Bar-----*/
-.search-section {
-    border-radius: 1rem;
-    background-color: #FAF0CA;
-}
-
-.search-section button {
-    border-radius: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.search-section a {
-    border-radius: 0.5rem;
-    margin-bottom: 0.5rem;
-}
 
 /*-------Profile Page-------*/
-.profile-hading {
-    border-radius: 0.5rem;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url("/static/images/profile.png");
-    background-position: center;
-    background-size: cover;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-.profile-hading h3 {
-    color: #fafafa;
+.profile-heading p{
+    padding-bottom: 5%;
 }
 
 .my-recipe-section h3 {
@@ -226,6 +218,9 @@ nav {
     color: #092B4A;
 }
 
+.my-recipe-section .home-btn-div {
+    margin-bottom: 3%;
+}
 /*-------Add recipe and Edit recipe-----*/
 .delete-ingredient,
 .delete-step {

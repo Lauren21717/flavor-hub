@@ -10,6 +10,14 @@ body {
     background-color: #FAF9F4;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Arimo", sans-serif;
+}
 
 
 /* #flash-messages{

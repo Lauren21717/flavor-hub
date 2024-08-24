@@ -14,6 +14,63 @@ $(document).ready(function () {
         });
     });
 
+    // Delete Recipe
+    $('.delete-recipe').on('click', function (e) {
+        e.preventDefault();
+        var recipeId = $(this).data('id');
+
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this recipe!",
+            icon: "warning",
+            buttons: {
+                cancel: {
+                    text: "Cancel",
+                    value: null,
+                    visible: true,
+                    className: "orange-light-button",
+                },
+                confirm: {
+                    text: "Yes, delete it!",
+                    value: true,
+                    visible: true,
+                    className: "blue-button",
+                }
+            },
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        url: '/delete_recipe/' + recipeId,
+                        type: 'GET',
+                        success: function (response) {
+                            if (response.success) {
+                                swal("Poof! Your recipe has been deleted!", {
+                                    icon: "success",
+                                }).then(() => {
+                                    window.location.href = "/"; 
+                                });
+                            } else {
+                                swal("Oops!", "Something went wrong. Please try again.", "error");
+                            }
+                        },
+                        error: function () {
+                            swal("Oops!", "Something went wrong. Please try again.", "error");
+                        }
+                    });
+                } else {
+                    swal({
+                        text: "Your recipe is safe!",
+                        button: {
+                            text: 'OK',
+                            className: 'blue-button'
+                        }
+                    });
+                }
+            });
+    });
+
     /**
     * Adds a new input field for an ingredient.
     * 

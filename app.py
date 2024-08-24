@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template, 
-    redirect, request, session, url_for, abort)
+    redirect, request, session, url_for, abort, jsonify)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -214,15 +214,14 @@ def edit_recipe(recipe_id):
     return render_template("edit_recipe.html", recipe=recipe, categories=categories)
 
 
-#Delete functionality
+#Delete recipe functionality
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     """
     Allows a logged-in user to delete a recipe they created.
     """
     mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})  
-    flash("Recipe successfully deleted")
-    return redirect(url_for("index"))
+    return jsonify({"success": True, "message": "Recipe successfully deleted"})
 
 
 #Admin Page Get Categories functionality

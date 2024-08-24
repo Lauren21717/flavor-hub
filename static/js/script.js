@@ -5,7 +5,13 @@ $(document).ready(function () {
 
     // This is the function to display the flash message
     $('#flash-messages .flash-message').each(function () {
-        swal($(this).text());
+        swal({
+            text: $(this).text(),
+            button: {
+                text: 'OK',
+                className: 'blue-button'
+            }
+        });
     });
 
     /**

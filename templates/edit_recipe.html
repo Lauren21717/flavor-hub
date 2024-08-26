@@ -88,7 +88,7 @@
                 {% for ingredient in recipe.ingredients %}
                     <div class="input-field">
                         <i class="fa-solid fa-list-ul prefix"></i>
-                        <textarea id="ingredient{{ loop.index }}" name="ingredients" minlength="5" maxlength="50" 
+                        <textarea id="ingredient{{ loop.index }}" name="ingredients" minlength="5" 
                             class="validate materialize-textarea" required>{{- ingredient -}}</textarea>
                         <label for="ingredient{{ loop.index }}">Ingredients</label>
                         <i class="fa-solid fa-times delete-ingredient"></i>
@@ -109,7 +109,7 @@
                 {% for step in recipe.preparation_step %}
                     <div class="input-field">
                         <i class="fa-solid fa-list-ol prefix"></i>
-                        <textarea id="step{{ loop.index }}" name="preparation_step" minlength="5" maxlength="200"
+                        <textarea id="step{{ loop.index }}" name="preparation_step" minlength="5"
                             class="validate materialize-textarea" required>{{- step -}}</textarea>
                         <label for="step{{ loop.index }}">Preparation Step {{ loop.index }}</label>
                         <i class="fa-solid fa-times delete-step"></i>

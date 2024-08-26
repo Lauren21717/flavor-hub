@@ -55,11 +55,12 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
                     {% if session.user %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                     <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
                     {% if session.user|lower == 'admin'|lower %}
-                    <li><a href="{{ url_for('get_categories') }}    ">Manage Categories</a></li>
+                    <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
                     {% endif %}
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
@@ -76,6 +77,7 @@
                 <a href="{{ url_for('index') }}" class="brand-logo"><img src="{{ url_for('static', filename='images/logo_transparent.png') }}" alt="" class="nav-logo"></a>
             </li>
             <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
             {% if session.user %}
             <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
             <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
@@ -133,6 +135,7 @@
                     <h5>Quick Links</h5>
                     <ul class="footer-link">
                         <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
                         {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>

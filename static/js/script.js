@@ -89,7 +89,6 @@ $(document).ready(function () {
             name: 'ingredients',
             class: 'materialize-textarea validate',
             minlength: '5',
-            maxlength: '50',
             required: true
         });
         let ingredientLabel = $('<label>', {
@@ -133,7 +132,6 @@ $(document).ready(function () {
             name: 'preparation_step',
             class: 'materialize-textarea validate',
             minlength: '5',
-            maxlength: '200',
             required: true
         });
         let stepLabel = $('<label>', {

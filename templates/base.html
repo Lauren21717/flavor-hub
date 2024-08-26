@@ -60,7 +60,7 @@
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                     <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
                     {% if session.user|lower == 'admin'|lower %}
-                    <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
+                    <li><a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a></li>
                     {% endif %}
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
@@ -82,7 +82,7 @@
             <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
             <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
             {% if session.user|lower == 'admin'|lower %}
-            <li><a href="{{ url_for('get_categories') }}    ">Manage Categories</a></li>
+            <li><a href="{{ url_for('admin_dashboard') }} ">Admin Dashboard</a></li>
             {% endif %}
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
@@ -140,7 +140,7 @@
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
                         {% if session.user|lower == 'admin'|lower %}
-                        <li><a href="{{ url_for('get_categories') }}    ">Manage Categories</a></li>
+                        <li><a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a></li>
                         {% endif %}
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         {% else %}

@@ -224,18 +224,18 @@ def delete_recipe(recipe_id):
     return jsonify({"success": True, "message": "Recipe successfully deleted"})
 
 
-#Admin Page Get Categories functionality
-@app.route("/get_categories")
-# Code copied from Mini Project | Putting It All Together tutorial at https://learn.codeinstitute.net/
-def get_categories():
+#Admin Page Get Categories and Users functionality
+@app.route("/admin_dashboard")
+def admin_dashboard():
     """
     Renders the categories management page, accessible only by "admin".
     """
     current_user = mongo.db.users.find_one({"username": session["user"]})
     
     if current_user and current_user["username"] == "admin":
+        all_users = mongo.db.users.find()
         categories = list(mongo.db.categories.find().sort("category_name", 1))
-        return render_template("categories.html", categories=categories)
+        return render_template("admin_dashboard.html", categories=categories, all_users = all_users)
 
     abort(403)
 
@@ -255,7 +255,7 @@ def add_category():
             }
             mongo.db.categories.insert_one(category)
             flash("New Category Added")
-            return redirect(url_for("get_categories"))
+            return redirect(url_for("admin_dashboard"))
         
         return render_template("add_category.html")
 
@@ -277,7 +277,7 @@ def edit_category(category_id):
             }
             mongo.db.categories.update_one({"_id": ObjectId(category_id)}, {"$set": submit})
             flash("Category Updated")
-            return redirect(url_for("get_categories"))
+            return redirect(url_for("admin_dashboard"))
         
         category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
         return render_template("edit_category.html", category=category)
@@ -293,7 +293,33 @@ def delete_category(category_id):
     """
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
-    return redirect(url_for("get_categories"))
+    return redirect(url_for("admin_dashboard"))
+
+#Admin Page Delete User functionality
+@app.route("/delete_user/<user_id>", methods=["POST"])
+def delete_user(user_id):
+    """
+    Allows "admin" to delete a user and all their associated recipes.
+    """
+    current_user = mongo.db.users.find_one({"username": session["user"]})
+    
+    if current_user and current_user["username"] == "admin":
+        user_to_delete = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+        
+        if user_to_delete and user_to_delete["username"] != "admin":
+            # Delete all recipes created by this user
+            mongo.db.recipes.delete_many({"created_by": user_to_delete["username"]})
+            
+            # Delete the user
+            mongo.db.users.delete_one({"_id": ObjectId(user_id)})
+            
+            flash(f"User {user_to_delete['username']} and all their recipes have been deleted")
+        else:
+            flash("Cannot delete admin user or user not found")
+        
+        return redirect(url_for("admin_dashboard"))
+    
+    abort(403)
 
 
 #Recipe Page

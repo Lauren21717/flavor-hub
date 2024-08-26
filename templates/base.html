@@ -10,7 +10,7 @@
     <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css">
    
     <!--materialize css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
@@ -23,11 +23,9 @@
     {% endblock %}
 
     <!-- Email Js API initialisation -->
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-    <script type="text/javascript">
+    <script>
         (function(){
             emailjs.init({
                 publicKey: "{{ email_api }}",
@@ -155,6 +153,7 @@
                     <ul class="social-link">
                         <li><a target="_blank" href="https://www.facebook.com/">
                                 <i class="fa-brands fa-facebook"></i>
+                            </a>
                         </li>
                         <li>
                             <a target="_blank" href="https://www.instagram.com/">

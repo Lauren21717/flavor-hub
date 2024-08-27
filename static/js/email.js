@@ -1,4 +1,4 @@
-const contactForm = document.getElementById("contact-form")
+const contactForm = document.getElementById("contact-form");
 
 /**
  * Function to handle form submission and send an email using EmailJS.

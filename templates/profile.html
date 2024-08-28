@@ -21,7 +21,7 @@
         <div class="col s12 m6 l4">
             <div class="card ">
                 <div class="card-image">
-                    <a href="{{ url_for('recipe', recipe_id= recipe._id) }}"><img src="{{ recipe.image_url }}"></a>
+                    <a href="{{ url_for('recipe', recipe_id= recipe._id) }}"><img src="{{ recipe.image_url }}" alt="Recipe"></a>
                 </div>
                 <div class="card-content">
                     <span class="card-title">{{ recipe.recipe_title }}</span>

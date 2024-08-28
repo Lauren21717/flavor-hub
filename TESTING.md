@@ -138,6 +138,33 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | **As a site administrator, I should be able to redirect users to the homepage if they try to access a page that is forbidden (403 error).** | ![Screenshot of the 403 error page](documentation/user-story/admin/403.png) |
 | **As a site administrator, I should be able to handle internal server errors by redirecting users back to the homepage with an appropriate message (500 error).** | ![Screenshot of the 500 error page](documentation/user-story/admin/500.png) |
 
+## Defensive Programming
+
+To ensure Flavor Hub's security, stability, and user-friendliness, several defensive programming techniques have been implemented:
+
+1. Input Validation:
+   - All user inputs are validated on both the client and server sides to prevent submission of malformed data.
+   - Example: Recipe ingredients and steps are checked for minimum and maximum lengths to ensure proper content.
+
+2. Authentication and Authorization:
+   - User authentication is required to access specific features, such as adding or editing recipes.
+   - Users are restricted to editing or deleting only their own recipes, ensuring data integrity and security.
+
+3. Error Handling:
+   - `Try-except` blocks are utilized to gracefully handle potential errors, preventing application crashes.
+   - Custom error pages (404, 403, 500) provide clear and user-friendly messages to guide users when something goes wrong.
+
+4. Confirmation:
+   - Before any recipe deletion, a confirmation modal is displayed to the user to prevent accidental deletions.
+
+5. Search Functionality:
+   - The search bar does not accept empty input submissions.
+   - Form validation prevents submission without input, and an appropriate error message is displayed to the user.
+
+6. User Authentication Redirects:
+   - Users attempting to access the dashboard without logging in are automatically redirected to an error page, maintaining the security of user data.
+
+
 ## Bugs
 
 - **When adding a new recipe, the steps after step one won’t be inserted into the database.**

@@ -79,6 +79,7 @@ def register():
         # Set session variable and notify user
         session["user"] = username
         flash("Registration Successful!")
+        return redirect(url_for("login"))
 
     return render_template('register.html')
 

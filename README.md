@@ -1,8 +1,8 @@
-# [Flavor Hub](https://flavor-hub-c7318789b1c4.herokuapp.com/)
+# [Flavor Hub](https://flavor-hub-19ce3c60f69f.herokuapp.com/)
 
 ![flavor-hub](documentation/flavor-hub.png)
 
-source: [Am I Responsive](https://ui.dev/amiresponsive?url=https://flavor-hub-c7318789b1c4.herokuapp.com/)
+source: [Am I Responsive](https://ui.dev/amiresponsive?url=https://flavor-hub-19ce3c60f69f.herokuapp.com/)
 
 ### Welcome to Flavor Hub
 Our platform allows users to explore, search, and discover a wide variety of recipes. With a simple sign-up, you can add, edit, and share your own culinary creations, making Flavor Hub your go-to destination for all things delicious.
@@ -304,7 +304,7 @@ I have use [Balsamiq](https://balsamiq.com/wireframes/) to design my site wirefr
 
 ## Deployment
 
-The live deployed application can be found on [Heroku](https://flavor-hub-c7318789b1c4.herokuapp.com/).
+The live deployed application can be found on [Heroku](https://flavor-hub-19ce3c60f69f.herokuapp.com/).
 
 ### MongoDB Non-Relational Database
 

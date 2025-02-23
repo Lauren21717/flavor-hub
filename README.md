@@ -1,5 +1,9 @@
 # [Flavor Hub](https://flavor-hub-45ta.onrender.com)
 
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/Lauren21717/flavor-hub)](https://github.com/Lauren21717/flavor-hub/commits/main)
+[![GitHub last commit](https://img.shields.io/github/last-commit/Lauren21717/flavor-hub)](https://github.com/Lauren21717/flavor-hub/commits/main)
+[![GitHub repo size](https://img.shields.io/github/repo-size/Lauren21717/flavor-hub)](https://github.com/Lauren21717/flavor-hub)
+
 ![flavor-hub](documentation/flavor-hub.png)
 
 source: [Am I Responsive](https://ui.dev/amiresponsive?url=https://flavor-hub-45ta.onrender.com)
@@ -7,50 +11,102 @@ source: [Am I Responsive](https://ui.dev/amiresponsive?url=https://flavor-hub-45
 ### Welcome to Flavor Hub
 Our platform allows users to explore, search, and discover a wide variety of recipes. With a simple sign-up, you can add, edit, and share your own culinary creations, making Flavor Hub your go-to destination for all things delicious.
 
-## User Experience(UX)
-- ### User stories
-    - #### New Site Users
-        - As a new site user, I would like to see a clear logo and website name to remember the brand.
-        - As a new site user, I would like to see a clear message about the web app’s purpose so that I can understand what the application is about.
-        - As a new site user, I would like to see a navigation bar so I can navigate around the site.
-        - As a new site user, I would like to easy sign up the website, so that I can access personalised features like adding and editing recipe.
-        - As a new site user, I would like to have a search bar to search the recipe.
-        - As a new site user, I would like to see social media icons so that I can reach out to other sources.
+## UX
+### Colour Scheme
 
+I used [coolors.co](https://coolors.co/092b4a-0d3b66-fafafa-faf9f4-faf0ca-f4d35e-ee964b-ee7c1b-f95738) to generate the color palette. Orange, blue, and their corresponding hues were selected for their association with energy and harmony, making them ideal for a website dedicated to recipes. These colors enhance the visual appeal and create a welcoming environment for users.
 
-    - #### Returning Site Users
-        - As a returning site user, I would like to log in securely, so I can manage my recipes.
-        - As a returning site user, I would like to add a new recipe, so that I can share my favorite sidhes with others.
-        - As a returning site user, I would like to edit my existing recipes, so that I can update or improve them over time.
-        - As a returning site user, I would like to delete a recipe I've added, so that I can manage my recipe collection.
-        - As a returning site user, I would like to mark some recipes as my favorites so that I can easily find them later.
-        - As a returning site user, I would like to see a community of other cooks and food enthusiasts so that I can learn more and share my experiences.
-        - As a returning site user, I would like to make posts in the community so that I can share my cooking experiences and tips.
-        - As a returning site user, I would like to comment on others' posts in the community so that I can engage in discussions and exchange ideas.
-        - As a returning site user, I would like to view all the recipes I have added on one page so that I can easily manage them.
-        - As a returning site user, I would like to log out to keep my session secure when using shared devices.
-        - As a returning site user, I would like to have access to a dedicated page for each recipe where I can view and add detailed information about that recipe.
-        - As a returning site user, I would like to be able to edit information on each specific recipe page to keep it accurate and up-to-date.
+![color-frame](documentation/colour.png)
 
-    - #### Site Admin
-        - As a site administrator, I would like to stay connected with users so that they can report any issues or provide feedback on user experience.
-        - As a site administrator, I should be able to delete posts that violate community guidelines to ensure the site remains a safe and welcoming space.
-        - As a site administrator, I should be able to view who created each post so that I can monitor content and user activity.
-        - As a site administrator, I should be able to delete users who violate the rules to maintain a safe and respectful community.
-        - As a site administrator, I need to manage and view user accounts effectively to maintain control over the user base and monitor activity.
-        - As a site administrator, I should be able to direct users back to the homepage if they encounter a page that is not found (404 error).
-        - As a site administrator, I should be able to redirect users to the homepage if they try to access a page that is forbidden (403 error).
-        - As a site administrator, I should be able to handle internal server errors by redirecting users back to the homepage with an appropriate message (500 error).
+### Typography
 
-## Design
-- ### Typography
-    - Google Fonts was used to import the fonts selected for this website. Imprima was chosen as the primary font for the entire site due to its clean and modern appearance, which ensures readability across all devices. Arimo was selected for the headings (h1-h6) to provide a distinct and professional look, adding emphasis and structure to the content. In case these fonts are not supported by the browser, a fallback to a generic sans-serif font was included to maintain consistency and readability.
+#### Overview
+Typography plays a key role in enhancing user experience and establishing a cohesive visual identity. The font choices for this website were carefully selected to reflect a clean, modern, and professional aesthetic, ensuring the content is both visually appealing and easy to read across all devices.
 
-- ### Colour Scheme
-    I used [coolors.co](https://coolors.co/092b4a-0d3b66-fafafa-faf9f4-faf0ca-f4d35e-ee964b-ee7c1b-f95738) to generate the color palette for the website. Orange, blue, and their corresponding hues were selected for their association with energy and harmony, making them ideal for a website dedicated to recipes. These colors enhance the visual appeal and create a welcoming environment for users.
-    ![color-frame](documentation/colour.png)
+#### Font Selections
 
+ - [Imprima](https://fonts.google.com/specimen/Imprima)\
+   Used as the primary font for the entire website. Its clean, modern appearance makes it highly readable and perfect for maintaining consistency throughout the site.
+ - [Arimo](https://fonts.google.com/specimen/Arimo?query=Arimo)\
+   Chosen for the headings (h1-h6), providing a distinct and professional look. It adds emphasis to the content while contributing to the structured design of the site.
 
+#### Fallback Font
+In cases where the primary fonts are not supported by the browser, a fallback to a generic sans-serif font is included. This ensures that the website maintains readability and consistency across different platforms and browsers.
+
+#### Conclusion
+The combination of Imprima for body text and Arimo for headings contributes to a visually cohesive and user-friendly design. This typography setup ensures the site remains accessible and visually appealing, while also reflecting a modern and professional aesthetic.
+
+## User Stories
+
+### New Site Users
+  - As a new user, I want to see a clear and recognizable logo so that I can easily remember the brand.
+
+  - As a new user, I want to understand the web app’s purpose right away so that I know what the platform offers.
+
+  - As a new user, I want to navigate easily through the website using the navigation bar so that I can find relevant sections and features quickly.
+
+  - As a new user, I want to easily sign up so that I can access personalized features like adding and editing recipes.
+
+  - As a new user, I want to see a search bar so that I can search for recipes across the site.
+
+  - As a new user, I want to see social media icons so that I can follow the platform on various channels.
+
+### Returning Site Users
+  - As a returning user, I want to securely log in so that I can manage my recipes and access personalized content.
+
+  - As a returning user, I want to add new recipes so that I can share my favorite dishes with others.
+
+  - As a returning user, I want to edit my existing recipes so that I can update or improve them over time.
+
+  - As a returning user, I want to delete a recipe that I’ve added so that I can manage my recipe collection.
+
+  - As a returning user, I want to mark recipes as favorites so that I can easily find them later.
+
+  - As a returning user, I want to see a community of other cooks and food enthusiasts so that I can learn from others and share my experiences.
+
+  - As a returning user, I want to make posts in the community so that I can share cooking tips and experiences.
+
+  - As a returning user, I want to comment on others’ posts so that I can engage in discussions and exchange ideas.
+
+  - As a returning user, I want to view all my added recipes on one page so that I can easily manage them.
+
+  - As a returning user, I want to log out securely so that my session remains safe on shared devices.
+
+  - As a returning user, I want access to a dedicated page for each recipe where I can view and add detailed information.
+
+  - As a returning user, I want to be able to edit the information on each recipe page to keep it accurate and up-to-date.
+
+### Site Admin
+  - As a site admin, I want to stay connected with users so that they can report issues or provide feedback about the app.
+
+  - As a site admin, I should be able to delete posts that violate community guidelines so that the site remains a safe and welcoming space.
+
+  - As a site admin, I should be able to view who created each post to monitor content and user activity.
+
+  - As a site admin, I should be able to delete users who violate rules to maintain a respectful community.
+
+  - As a site admin, I need to manage and view user accounts effectively to ensure the site’s integrity.
+
+  - As a site admin, I should be able to redirect users to the homepage if they encounter a 404 error (page not found).
+
+  - As a site admin, I should be able to redirect users to the homepage if they try to access a forbidden page (403 error).
+
+  - As a site admin, I should be able to handle internal server errors by directing users back to the homepage with an appropriate message (500 error).
+  - As a site administrator, I would like to stay connected with users so that they can report any issues or provide feedback on user experience.
+
+  - As a site administrator, I should be able to delete posts that violate community guidelines to ensure the site remains a safe and welcoming space.
+
+  - As a site administrator, I should be able to view who created each post so that I can monitor content and user activity.
+
+  - As a site administrator, I should be able to delete users who violate the rules to maintain a safe and respectful community.
+
+  - As a site administrator, I need to manage and view user accounts effectively to maintain control over the user base and monitor activity.
+
+  - As a site administrator, I should be able to direct users back to the homepage if they encounter a page that is not found (404 error).
+
+  - As a site administrator, I should be able to redirect users to the homepage if they try to access a page that is forbidden (403 error).
+  
+  - As a site administrator, I should be able to handle internal server errors by redirecting users back to the homepage with an appropriate message (500 error).
 
 ## Wireframes
 
@@ -120,7 +176,6 @@ I have use [Balsamiq](https://balsamiq.com/wireframes/) to design my site wirefr
 </details>
 
 ## Features
-
 ### Existing Features
 
   - #### Hero Image
@@ -246,57 +301,78 @@ I have use [Balsamiq](https://balsamiq.com/wireframes/) to design my site wirefr
 
 
 ## Tools and Technologies Used
-  - [Balsamiq](https://balsamiq.com/wireframes) - Used for creating wireframes.
-  - [Git](https://git-scm.com) - Version control system to track code changes.
-  - [GitHub](https://github.com) - Secure online platform for code storage and collaboration.
-  - [Gitpod](https://gitpod.io) - Cloud-based IDE for development.
-  - [HTML](https://en.wikipedia.org/wiki/HTML) - Markup language for the main site content.
-  - [CSS](https://en.wikipedia.org/wiki/CSS) - Stylesheet language used for site design and layout.
-  - [JavaScript](https://www.javascript.com) - Programming language used for user interaction on the site.
-  - [jQuery](https://jquery.com) - JavaScript library used to simplify DOM manipulation and event handling.
-  - [Python](https://www.python.org) - Back-end programming language used to build server-side logic.
-  - [Flask](https://flask.palletsprojects.com) - Python web framework used to create the web application.
-  - [MongoDB](https://www.mongodb.com) - Non-relational database used with Flask for data storage and management.
-  - [Heroku](https://www.heroku.com) - Cloud platform used for hosting and deploying the back-end application.
-  - [Render](https://render.com/) - Cloud platform used for hosting and deploying the back-end application.
-  - [Materialize](https://materializeweb.com)  - Front-end framework for responsive design and pre-built components.
-  - [Font Awesome](https://fontawesome.com) - Icon library used for scalable vector icons.
-  - [Google Fonts](https://fonts.google.com/icons) - Source for web fonts and icons used across the site.
-  - [ChatGPT](https://chat.openai.com) - AI tool used to assist in writing content.
-  - [Email JS](https://www.emailjs.com/) - Service used to send automatic email replies to users after contact.
-  - [fontjoy](https://fontjoy.com/) - Tool used for testing and choosing font combinations.
-  - [Shopify](https://www.shopify.com/tools/logo-maker) - Tool used for generating the site's logo.
-  - [Sweet Alert](https://sweetalert.js.org/guides/#installation) - Library used to style alerts on the site.
-  - [Pinterest](https://www.pinterest.co.uk/) - Platform used to source inspiration and images.
 
+- **Design & Wireframing:**
+  - [![Balsamiq](https://img.shields.io/badge/Balsamiq-grey?logo=barmenia&logoColor=CE0908)](https://balsamiq.com/wireframes) - Used for creating wireframes.
+
+- **Version Control & Collaboration:**
+  - [![Git](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) - Version control system to track code changes.
+  - [![GitHub](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) - Secure online platform for code storage and collaboration.
+  - [![Gitpod](https://img.shields.io/badge/Gitpod-grey?logo=gitpod&logoColor=FFAE33)](https://gitpod.io) - Cloud-based IDE for development.
+
+- **Frontend Development:**
+  - [![HTML](https://img.shields.io/badge/HTML-grey?logo=html5&logoColor=E34F26)](https://en.wikipedia.org/wiki/HTML) - Markup language for the main site content.
+  - [![CSS](https://img.shields.io/badge/CSS-grey?logo=css3&logoColor=1572B6)](https://en.wikipedia.org/wiki/CSS) - Stylesheet language used for site design and layout.
+  - [![JavaScript](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E)](https://www.javascript.com) - Programming language used for user interaction on the site.
+  - [![jQuery](https://img.shields.io/badge/jQuery-grey?logo=jquery&logoColor=0769AD)](https://jquery.com) - JavaScript library used to simplify DOM manipulation and event handling.
+
+- **Backend Development:**
+  - [![Python](https://img.shields.io/badge/Python-grey?logo=python&logoColor=3776AB)](https://www.python.org) - Back-end programming language used to build server-side logic.
+  - [![Flask](https://img.shields.io/badge/Flask-grey?logo=flask&logoColor=000000)](https://flask.palletsprojects.com) - Python web framework used to create the web application.
+  - [![MongoDB](https://img.shields.io/badge/MongoDB-grey?logo=mongodb&logoColor=47A248)](https://www.mongodb.com) - Non-relational database used with Flask for data storage and management.
+
+- **Hosting & Deployment:**
+  - [![Heroku](https://img.shields.io/badge/Heroku-grey?logo=heroku&logoColor=430098)](https://www.heroku.com) - Cloud platform used for hosting and deploying the back-end application.
+  - [![Render](https://img.shields.io/badge/Render-grey?logo=render&logoColor=4C4BFE)](https://render.com/) - Cloud platform used for hosting and deploying the back-end application.
+
+- **Frontend Libraries & Frameworks:**
+  - [![Materialize](https://img.shields.io/badge/Materialize-grey?logo=materialize&logoColor=607D8B)](https://materializeweb.com)  - Front-end framework for responsive design and pre-built components.
+  - [![Font Awesome](https://img.shields.io/badge/Font_Awesome-grey?logo=font-awesome&logoColor=1967D2)](https://fontawesome.com) - Icon library used for scalable vector icons.
+  - [![Google Fonts](https://img.shields.io/badge/Google_Fonts-grey?logo=google&logoColor=4285F4)](https://fonts.google.com/icons) - Source for web fonts and icons used across the site.
+
+- **AI and Content Creation:**
+  - [![ChatGPT](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=00a67d)](https://chat.openai.com) - AI tool used to assist in writing content.
+
+- **Email & Communication:**
+  - [![Email JS](https://img.shields.io/badge/Email_JS-grey?logo=emailjs&logoColor=F5F5F5)](https://www.emailjs.com/) - Service used to send automatic email replies to users after contact.
+
+- **Design Tools:**
+  - [![fontjoy](https://img.shields.io/badge/fontjoy-grey?logo=font-awesome&logoColor=FF5733)](https://fontjoy.com/) - Tool used for testing and choosing font combinations.
+  - [![Shopify](https://img.shields.io/badge/Shopify-grey?logo=shopify&logoColor=96BF48)](https://www.shopify.com/tools/logo-maker) - Tool used for generating the site's logo.
+  - [![Pinterest](https://img.shields.io/badge/Pinterest-grey?logo=pinterest&logoColor=BD081C)](https://www.pinterest.co.uk/) - Platform used to source inspiration and images.
+
+- **Alerts & User Interface:**
+  - [![Sweet Alert](https://img.shields.io/badge/Sweet_Alert-grey?logo=sweetalert&logoColor=FFB64B)](https://sweetalert.js.org/guides/#installation) - Library used to style alerts on the site.
 
 ## Database Design
-  - ### Database Choice and Structure
-    - **Flavor Hub** utilizes MongoDB, a non-relational database, for its flexibility and document-based data model. This structure is ideal for handling the varying attributes of recipes without requiring changes to the overall schema.
-    - This flexible schema is advantageous as it allows for a variety of attributes to be stored, even as the data evolves over time.
+### Database Choice and Structure
+**Flavor Hub** utilizes MongoDB, a non-relational database, for its flexibility and document-based data model. This structure is ideal for handling the varying attributes of recipes without requiring changes to the overall schema.
 
-  - ### Current Collections
-     The database, named flavor_hub, currently contains the following collections:
-      1. **users:** Stores user information and credentials.
-      2. **recipes:** Contains detailed information about each recipe, such as ingredients, steps, and associated user ID.
-      3. **categories:** Stores different categories under which recipes can be classified (e.g. Desserts, Main Course).
+This flexible schema is advantageous as it allows for a variety of attributes to be stored, even as the data evolves over time.
 
-  - ### Future Database Collections
-     In future iterations of Flavor Hub, we plan to introduce additional collections to enhance user interaction and personalization:
-      1. **comments:** This collection will store user comments and ratings on recipes. It will be linked to both the `users` and `recipes` collections to manage feedback effectively.
-      2. **favorites:** This collection will allow users to save their favorite recipes. It will link users to their selected recipes, providing a personalized experience.
+### Current Collections
+The database, named flavor_hub, currently contains the following collections:
+1. **users:** Stores user information and credentials.
+2. **recipes:** Contains detailed information about each recipe, such as ingredients, steps, and associated user ID.
+3. **categories:** Stores different categories under which recipes can be classified (e.g. Desserts, Main Course).
+
+### Future Database Collections
+In future iterations of Flavor Hub, we plan to introduce additional collections to enhance user interaction and personalization:
+1. **comments:** This collection will store user comments and ratings on recipes. It will be linked to both the `users` and `recipes` collections to manage feedback effectively.
+2. **favorites:** This collection will allow users to save their favorite recipes. It will link users to their selected recipes, providing a personalized experience.
   
-    These future collections will be added to expand the functionality of Flavor Hub and enhance user engagement.
+These future collections will be added to expand the functionality of Flavor Hub and enhance user engagement.
   
-  - #### Database Schema Diagram
-    I used [Lucidchart](https://www.lucidchart.com) to create the database schema diagram. This diagram visually represents the current collections, their relationships, and the fields within each collection.
-    ![Database_scheme.png](documentation/Database_scheme.png)
+#### Database Schema Diagram
+I used [Lucidchart](https://www.lucidchart.com) to create the database schema diagram. This diagram visually represents the current collections, their relationships, and the fields within each collection.
+
+![Database_scheme.png](documentation/Database_scheme.png)
 
 
 ## Agile Development Process
-  - ### Trello
-    use [trello](https://trello.com/) to plan the tasks
-    ![trello](documentation/trello.png)
+### Trello
+I use [trello](https://trello.com/) to plan the tasks
+![trello](documentation/trello.png)
 
 ## Testing
 

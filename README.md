@@ -1,8 +1,8 @@
-# [Flavor Hub](https://flavor-hub-19ce3c60f69f.herokuapp.com/)
+# [Flavor Hub](https://flavor-hub-45ta.onrender.com)
 
 ![flavor-hub](documentation/flavor-hub.png)
 
-source: [Am I Responsive](https://ui.dev/amiresponsive?url=https://flavor-hub-19ce3c60f69f.herokuapp.com/)
+source: [Am I Responsive](https://ui.dev/amiresponsive?url=https://flavor-hub-45ta.onrender.com)
 
 ### Welcome to Flavor Hub
 Our platform allows users to explore, search, and discover a wide variety of recipes. With a simple sign-up, you can add, edit, and share your own culinary creations, making Flavor Hub your go-to destination for all things delicious.
@@ -258,6 +258,7 @@ I have use [Balsamiq](https://balsamiq.com/wireframes/) to design my site wirefr
   - [Flask](https://flask.palletsprojects.com) - Python web framework used to create the web application.
   - [MongoDB](https://www.mongodb.com) - Non-relational database used with Flask for data storage and management.
   - [Heroku](https://www.heroku.com) - Cloud platform used for hosting and deploying the back-end application.
+  - [Render](https://render.com/) - Cloud platform used for hosting and deploying the back-end application.
   - [Materialize](https://materializeweb.com)  - Front-end framework for responsive design and pre-built components.
   - [Font Awesome](https://fontawesome.com) - Icon library used for scalable vector icons.
   - [Google Fonts](https://fonts.google.com/icons) - Source for web fonts and icons used across the site.
@@ -304,7 +305,7 @@ I have use [Balsamiq](https://balsamiq.com/wireframes/) to design my site wirefr
 
 ## Deployment
 
-The live deployed application can be found on [Heroku](https://flavor-hub-19ce3c60f69f.herokuapp.com/).
+The live deployed application can be found on [Render](https://flavor-hub-45ta.onrender.com).
 
 ### MongoDB Non-Relational Database
 
@@ -319,9 +320,13 @@ To obtain your own MongoDB Database URI, sign up on their site, then follow thes
 - Click **Connect Your Application**.
 - Copy the connection string and replace `password` with your own password (also remove the angle-brackets).
 
+### Deployment Instruction
+
+This project can be deployed to both [Heroku](https://www.heroku.com/) and [Render](https://render.com/). Choose the platform you prefer or follow both instructions for flexibility.
+
 ### Heroku Deployment
 
-This project uses [Heroku](https://www.heroku.com/), a Platform as a Service (PaaS), for cloud deployment. Follow these steps to deploy:
+[Heroku](https://www.heroku.com/) is a Platform as a Service (PaaS), for cloud deployment. Follow these steps to deploy:
 
 1. **Create a New Heroku App:**
    - Log in to your [Heroku Dashboard](https://dashboard.heroku.com).
@@ -381,6 +386,57 @@ This project uses [Heroku](https://www.heroku.com/), a Platform as a Service (Pa
      ```bash
      heroku open
      ```
+
+### Render Deployment
+
+[Render](https://render.com/) is another PaaS option that can deploy your Flask application. Follow these steps to deploy your app on [Render](https://render.com/):
+
+1. **Create a New Render Web Service:**
+   - Go to the [Render Dashboard](https://dashboard.render.com/).
+   - Click "+ New" button in the top-right corner and select "Web Service".
+   - Connect your GitHub account or GitLab and select the repository for your project.
+   - Render will automatically detect the type of app you're deploying. Choose Python for the runtime environment.
+   - Under Environment, set the following:
+    - Build Command: `pip install -r requirements.txt`
+    - Start Command: `python app.py`
+
+2. **Configure Environment Variables:**
+   - In the Environment Variables section of your Render Web Service setup, add the same variables as for Heroku:
+
+     | Key                        | Value                   |
+     |----------------------------|-------------------------|
+     | `IP`                        | `0.0.0.0`               |
+     | `PORT`                      | `5000`                  |
+     | `SECRET_KEY`                | Your own value          |
+     | `MONGO_URI`                 | Your MongoDB connection string |
+     | `MONGO_DBNAME`              | Your MongoDB database name |
+     | `EMAIL_API`                 | Your EmailJS public key |
+
+3. **Prepare Deployment Files:**
+   - Make sure the following files are in the root directory of your project:
+
+     - **`requirements.txt`**: Lists all required Python packages.
+       ```bash
+       pip3 freeze > requirements.txt
+       ```
+
+     - **`Procfile`**: Specifies the commands to run your application.
+       ```bash
+       echo web: python app.py > Procfile
+       ```
+       Replace `app.py` with the name of your primary Flask application file.
+
+     - **`runtime.txt`**: Specifies the Python version.
+       ```bash
+       python-3.12.8
+       ```
+
+4. **Deploy Your Application:**
+   - Once everything is set up, click "Create Web Service" on Render to trigger the build and deploy process.
+
+   - Render will build your project, install dependencies, and deploy your Flask app.
+
+   - After deployment, Render will provide a URL where you can access your live application.
 
 ### EmailJS Integration
 
